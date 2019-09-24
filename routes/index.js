@@ -4,7 +4,8 @@ const Book = require("../models/book.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  //res.render("index");
+  next();
 });
 
 router.get("/books", (req, res, next) => {
@@ -15,16 +16,6 @@ router.get("/books", (req, res, next) => {
     })
     .catch(error => {
       console.log("Error while getting the books from the DB: ", error);
-    });
-});
-
-router.get("/books/:bookId", (req, res, next) => {
-  Book.findById(req.params.bookId)
-    .then(theBook => {
-      res.render("book-details", { book: theBook });
-    })
-    .catch(error => {
-      console.log("Error while retrieving book details: ", error);
     });
 });
 
@@ -70,6 +61,16 @@ router.post("/books/edit", (req, res, next) => {
     })
     .catch(error => {
       console.log(error);
+    });
+});
+
+router.get("/books/:bookId", (req, res, next) => {
+  Book.findById(req.params.bookId)
+    .then(theBook => {
+      res.render("book-details", { book: theBook });
+    })
+    .catch(error => {
+      console.log("Error while retrieving book details: ", error);
     });
 });
 
