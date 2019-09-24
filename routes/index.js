@@ -4,8 +4,7 @@ const Book = require("../models/book.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  //res.render("index");
-  next();
+  res.render("index");
 });
 
 router.get("/books", (req, res, next) => {
