@@ -1,11 +1,12 @@
 /*
    Start your app in development mode:
-   $ SET DEBUG=marco-santo:* & npm run dev
+   $ SET DEBUG=library-project:* & npm run dev
 
    Start your app:
    $ npm start
 
 */
+
 require("dotenv").config();
 
 const bodyParser = require("body-parser");
@@ -18,7 +19,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/marco-santo", { useNewUrlParser: true })
+  .connect("mongodb://localhost/library-project", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
